@@ -33,13 +33,11 @@ jobs:
             npm run build
             printenv > www/.env
       - aws-cli/install
-      - eb/setup
       - run:
           name: Deploy Server
           command: |-
             aws s3 cp ./www/Archive.zip s3://elasticbeanstalk-us-east-1-514849120252/
             aws elasticbeanstalk update-environment --application-name udagramheidar --environment-name Udagramheidar-env --version-label V2
-            eb printenv
 
 workflows:
   build&deploy:
