@@ -9,7 +9,7 @@
         "frontend:install": "cd udagram-frontend && npm ci && cd ..",
         "frontend:test": "cd udagram-frontend && npm run test && cd ..",
         "postinstall": "npm run api:install && npm run fe:install",
-        "deploy": "chmod +x ./bin/deploy.sh && ./bin/deploy.sh"
+        "setEnv": "chmod +x ./bin/setEnv.sh && ./bin/setEnv.sh"
     },
     "devDependencies": {},
     "repository": {
