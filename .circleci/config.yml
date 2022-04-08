@@ -31,7 +31,9 @@ jobs:
           name: Build and Archive Server
           command: |-
             npm run build
+            printenv > www/.env
       - aws-cli/install
+      - eb/install
       - run:
           name: Deploy Server
           command: |-
