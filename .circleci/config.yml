@@ -44,5 +44,4 @@ workflows:
       - back_end_deployment
         filters:
           branches:
-            only:
-              - main
+            only: main
