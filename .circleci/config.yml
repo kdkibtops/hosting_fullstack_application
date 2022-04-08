@@ -39,11 +39,10 @@ jobs:
             aws elasticbeanstalk update-environment --environment-name Udagramheidar-env
 workflows:
   build&deploy:
-    filters:
-      branches:
-        only:
-          - main
     jobs:
       - Front_end_deployment
       - back_end_deployment
-        
+        filters:
+          branches:
+            only:
+              - main
