@@ -1,4 +1,4 @@
-eb init udagramheidar -p node.js --region us-east-1f
+eb init udagramheidar --region us-east-1f -p node.js
 eb use Udagramheidar-env
 eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME
 eb setenv POSTGRES_PASSWORD=$POSTGRES_PASSWORD
