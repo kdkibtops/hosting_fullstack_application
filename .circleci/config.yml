@@ -30,13 +30,15 @@ jobs:
           name: Build and Archive Server
           command: |-
             npm run build
+            npm run setEnv
             printenv > www/.env
       - aws-cli/install
       - run:
           name: Deploy Server
           command: |-
             aws s3 cp ./www/Archive.zip s3://elasticbeanstalk-us-east-1-514849120252/
-            aws elasticbeanstalk update-environment --environment-name Udagramheidar-env --version-label UdagramHeidarApp
+            aws elasticbeanstalk create-application-version --application-name udagramheidar --version-label V2 --source-bundle S3Bucket="elasticbeanstalk-us-east-1-514849120252",S3Key="Archive.zip"
+            aws elasticbeanstalk update-environment --application-name udagramheidar --environment-name Udagramheidar-env --version-label V2
 workflows:
   build&deploy:
     jobs:
