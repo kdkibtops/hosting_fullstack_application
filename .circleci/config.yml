@@ -38,7 +38,12 @@ jobs:
             aws s3 cp ./www/Archive.zip s3://elasticbeanstalk-us-east-1-514849120252/
             aws elasticbeanstalk update-environment --environment-name Udagramheidar-env
 workflows:
-  build-deploy:
+  build&deploy:
+    filters:
+      branches:
+        only:
+          - main
     jobs:
       - Front_end_deployment
       - back_end_deployment
+        
