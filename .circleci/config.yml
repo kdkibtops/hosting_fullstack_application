@@ -16,7 +16,6 @@ jobs:
           name: front_end_build
           command: npm run build
       - aws-cli/install
-      - eb/setup
       - run:
           name: Deploy Frontend
           command: aws s3 cp --recursive --acl public-read ./www s3://udagram-heidar/
@@ -34,6 +33,7 @@ jobs:
             npm run build
             printenv > www/.env
       - aws-cli/install
+      - eb/setup
       - run:
           name: Deploy Server
           command: |-
