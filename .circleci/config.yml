@@ -40,8 +40,11 @@ jobs:
 workflows:
   build&deploy:
     jobs:
-      - Front_end_deployment
-      - back_end_deployment
+      - Front_end_deployment:
+      filters:
+          branches:
+            only: main
+      - back_end_deployment:
         filters:
           branches:
             only: main
