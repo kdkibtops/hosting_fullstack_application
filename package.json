@@ -10,7 +10,7 @@
         "frontend:test": "cd udagram-frontend && npm run test && cd ..",
         "postinstall": "npm run api:install && npm run fe:install",
         "setEnv": "cd bin && chmod +x setEnv.sh && setEnv.sh && cd ..",
-        "push": "git add . && git commit -m \"new update\" && git status && git push"
+        "gitpush": "git add . && git commit -m \"new update\" && git status && git push"
     },
     "devDependencies": {},
     "repository": {
