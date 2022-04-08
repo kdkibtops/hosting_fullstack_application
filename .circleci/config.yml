@@ -30,17 +30,14 @@ jobs:
       - run:
           name: Build and Archive Server
           command: |-
-            npm run build
+            npm run production
             printenv > www/.env
       - aws-cli/install
-      - eb/setup
       - run:
           name: Deploy Server
           command: |-
             aws s3 cp ./www/Archive.zip s3://elasticbeanstalk-us-east-1-514849120252/
-            aws s3 cp ./www/.env s3://elasticbeanstalk-us-east-1-514849120252/
             aws elasticbeanstalk update-environment --application-name udagramheidar --environment-name Udagramheidar-env --version-label V2
-            eb init udagramheidar -r $AWS_REGION -p node.js
 
 workflows:
   build&deploy:
